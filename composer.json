@@ -1,6 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "jaredclemence/darknetpromo",
+    "description": "DarkNet Promotion Site",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
