@@ -28,13 +28,10 @@ Route::prefix('campaign')->group(function() {
     Route::get('/offer', function() {
         return 'edit';
     });
-    Route::get('/{code}/{ref_id?}', function( \App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer ) {
-        return view('promotion.offer');
-    });
-    Route::post('/{code}/{ref_id?}/register', function( \Illuminate\Http\Request $request, \App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer ) {
-        return redirect(route('new-registration', compact('promotion', 'referrer')));
-    });
-    Route::get('/{code}/{ref_id?}/thank-you', function( \App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer ) {
-        dd($promotion);
-    })->name('new-registration');
+    Route::get('/contest/{ref_id?}', 'ReferralOfferViewController@displayOffer')->name('registration.new');
+    Route::post('/{code}/{ref_id?}/register', 'ReferralOfferViewController@registerVisitor');
+    Route::get('/{code}/{new_ref_id}/thank-you', 'ReferralOfferViewController@successfulRegistration')->name('registration.success');
+    Route::get('/{code}/{new_ref_id}/verify', 'ReferralOfferViewController@rejectedRegistration')->name('registration.verify');
+    Route::get('/{code}/error', 'ReferralOfferViewController@rejectedRegistration')->name('registration.error');
+    Route::get('/{code}/contest', 'ReferralOfferViewController@rejectedRegistration')->name('contest.offer');
 });

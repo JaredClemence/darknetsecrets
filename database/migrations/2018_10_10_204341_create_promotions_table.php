@@ -17,6 +17,7 @@ class CreatePromotionsTable extends Migration
             $table->increments('id');
             $table->string('code')->unique();
             $table->string('name')->default('');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
