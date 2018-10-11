@@ -15,6 +15,8 @@ class CreateReferralOfferConfirmedAcceptancesTable extends Migration
     {
         Schema::create('referral_offer_confirmed_acceptances', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('referrer_id');
+            $table->integer('referree_id');
             $table->timestamps();
         });
     }

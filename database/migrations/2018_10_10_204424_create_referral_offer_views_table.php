@@ -15,6 +15,7 @@ class CreateReferralOfferViewsTable extends Migration
     {
         Schema::create('referral_offer_views', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('referrer_id');
             $table->timestamps();
         });
     }

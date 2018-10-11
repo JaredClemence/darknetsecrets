@@ -18,3 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('campaign')->group( function(){
+    Route::get('/new', function(){
+        return 'create';
+    });
+    Route::get('/offer', function(){
+        return 'edit';
+    });
+    Route::get('/{code}/{ref_id?}', function( \App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer ){
+        return view('promotion.offer');
+    });
+    Route::post('/{code}/{ref_id?}/register', function( \Illuminate\Http\Request $request, \App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer ){
+        return redirect( route('new-registration',compact('promotion','referrer')));
+    } );
+    Route::get('/{code}/{ref_id?}/thank-you', function( \App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer ){
+        dd( $promotion );
+    })->name('new-registration');
+} );

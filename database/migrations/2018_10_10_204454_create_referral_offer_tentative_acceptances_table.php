@@ -15,6 +15,8 @@ class CreateReferralOfferTentativeAcceptancesTable extends Migration
     {
         Schema::create('referral_offer_tentative_acceptances', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('referrer_id');
+            $table->integer('referree_id');
             $table->timestamps();
         });
     }

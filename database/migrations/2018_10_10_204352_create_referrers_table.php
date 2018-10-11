@@ -15,6 +15,9 @@ class CreateReferrersTable extends Migration
     {
         Schema::create('referrers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('promotion_id');
+            $table->string('email');
+            $table->boolean('verified')->default(0);
             $table->timestamps();
         });
     }
