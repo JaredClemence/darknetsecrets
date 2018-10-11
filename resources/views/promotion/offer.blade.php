@@ -53,14 +53,21 @@
             <p><small>You will learn how to bounce your connection around the world to hide your true location.</samll></p>
             <section  style="border:black solid 1px; border-radius:15px; padding: 1rem; background-color: #aae0f1;">
                 <h2>Register Now</h2>
-                <p>Be the first to know when the free workshop is ready. Learn to be invisible on the Internet.</p>
+                <p>Be the first to know when the free workshop is ready and learn hide your Internet activity like a professional.</p>
                 <form method="post">
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input id="email" name="email" type="email" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
-                </form>
+                </form><br/>
+                <p>
+                    By clicking the &quot;Register&quot; button, you accept the terms and conditions described here: 
+                    <a href="{{ url('/terms') }}" target="_blank">
+                    Terms & Conditions
+                    </a>
+                    (Terms & Conditions will open in a separate window, tab, or screen)
+                </p>
             </section>
         </div>
     </div>
