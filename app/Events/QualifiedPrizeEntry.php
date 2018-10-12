@@ -11,4 +11,4 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\Events\RegisteredUserEvent;
 
-class NewPromotionRegistration extends RegisteredUserEvent{}
+class QualifiedPrizeEntry extends RegisteredUserEvent{}

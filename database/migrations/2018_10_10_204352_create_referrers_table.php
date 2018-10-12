@@ -18,6 +18,8 @@ class CreateReferrersTable extends Migration
             $table->string('promotion_id');
             $table->string('email');
             $table->boolean('verified')->default(0);
+            $table->boolean('unsubscribed')->default(0);
+            $table->string('secure_token');
             $table->timestamps();
         });
     }

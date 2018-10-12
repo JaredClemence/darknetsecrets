@@ -8,6 +8,7 @@ $factory->define(Referrer::class, function (Faker $faker) {
     return [
         'promotion_id'=>function(){ return factory(Promotion::class)->create()->id; },
         'email'=>$faker->email,
-        'verified'=>$faker->boolean
+        'verified'=>$faker->boolean,
+        'secure_token'=>md5( $faker->paragraph )
     ];
 });

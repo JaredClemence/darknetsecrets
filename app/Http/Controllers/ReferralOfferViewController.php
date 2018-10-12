@@ -64,11 +64,24 @@ class ReferralOfferViewController extends Controller {
         $referralUrl = route('registration.new', ['ref_id'=>$referrer->id]);
         $email = $referrer->email;
         //return view with contest prize offer and terms.
-        return view('promotion.thank-you', compact('referralUrl','email'));
+        $successMessage = "Successfully registered '$email'. We will send an email in five to ten minutes. Please click the link in the email to verify your email address.";
+        return view('promotion.thank-you', compact('referralUrl','successMessage'));
     }
 
     public function rejectedRegistration(Promotion $promotion, Referrer $referrer) {
         
+    }
+    
+    public function unsubscribe( Referrer $ref_id, $sec_token ){
+        
+    }
+    
+    public function verify( Referrer $ref_id, $sec_token ){
+        $ref_id->verified = true;
+        $ref_id->save();
+        $email = $ref_id->email;
+        $successMessage = "Verified '$email'. You are now eligible to receive bonuses when you provide referrals.";
+        return view('promotion.thank-you', compact('referralUrl','successMessage'));
     }
 
     private function prepareErrorMessage($promotion, $email) {
@@ -90,6 +103,10 @@ class ReferralOfferViewController extends Controller {
             'promotion_id'=>$promotion->id,
             'email'=>$email
         ] );
+        if( $referrer->secure_token == null ){
+            $timestamp = time();
+            $referrer->secure_token = substr( md5( $timestamp ), 10, 5 );
+        }
         return $referrer;
     }
 

@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col text-center">
-            <div class="alert alert-success">Successfully registered '{{$email}}'. We will send an email in five to ten minutes. Please click the link in the email to verify your email address.</div>
+            <div class="alert alert-success">{{$successMessage}}</div>
         </div>
     </div>
     <div class="jumbotron">
@@ -162,6 +162,7 @@
                 <li>The person attempts to assign his or her prize to a third party.</li>
                 <li>The person shares the referral link without intending to enter the contest.</li>
                 <li>The person is a minor.</li>
+                <li>Un-subscribing, which can be done from any email sent from the site by clicking a link.</li>
             </ul>
             <p>The site reserves the right to select an alternate winner when the 
                 contest winner is disqualified for any reason above.</p>
