@@ -57,11 +57,14 @@ class ReferralOfferViewController extends Controller {
         return redirect($nextPage);
     }
 
-    public function successfulRegistration(\App\Campaign\Promotion $promotion, \App\Campaign\Referrer $referrer) {
+    public function successfulRegistration(Promotion $code, Referrer $new_ref_id) {
         //generate referral link
-        $referralUrl = route('registration.new', compact('promotion', 'referrer'));
+        $referrer = $new_ref_id;
+        $promotion = $code;
+        $referralUrl = route('registration.new', ['ref_id'=>$referrer->id]);
+        $email = $referrer->email;
         //return view with contest prize offer and terms.
-        return view('promotion.thank-you', compact('referralUrl'));
+        return view('promotion.thank-you', compact('referralUrl','email'));
     }
 
     public function rejectedRegistration(Promotion $promotion, Referrer $referrer) {

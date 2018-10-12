@@ -6,6 +6,13 @@
             <h1>Terms and Conditions of Use</h1>
             <h2>Definitions</h2>
             <dl>
+                <dt>contest:</dt><dd>a promotional offer that has the form of a 
+                unilateral contract that requires referrals. Contests may be take the 
+                form of a "sweepstakes" (entirely luck-based) or a "contest of merit" (based on 
+                a skill or merit that the participant can manipulate to change odds).
+                A contest is not a lottery--this site will not accept money in exchange 
+                for chances to win.
+                </dd>
                 <dt>paying customer:</dt><dd> a verified registrant who visits 
                     a page that is only made accessible to a person who has 
                     contributed monitory value to the site's owner, programs 
@@ -104,6 +111,19 @@ the limit shall be set as follows:</p>
     shall be considered current and up-to-date if the data used is obtained 
     within 24 hours of the selection, or no additional sales have been made 
     between the time the last list was uploaded and the moment of the decision.</p>
+<h2>Lotteries</h2>
+<p>This site does not perform or condone the use of lotteries. A lottery is defined 
+    as a game of chance that requires entrants to pay money to improve or have a chance to win.
+    One example of a lottery would be a "gift" of "chances to win" for purchases made; 
+    even though the "chance to win" is named a gift in this hypothetical, the chance to 
+    win is only obtained through providing a purchase, and this would constitute a lottery.</p>
+<p>This site does award chances to win in exchange for referrals of 'paying customers.' This is not 
+    a lottery. The person who receives the chance to win provides a referral only. It does not 
+    cost the registrant any money to obtain the chance, and therefore this is not a lottery but a 
+    "contest of merit."</p>
+<p>For all contests of merit offered by this site, a person has the option of registering for 
+    a unique referral url, and that option will be made available at no cost. Please see the 
+    landing page for the 'contest of merit' registration or contact the site owner for details.</p>
 <h2>Updates to the Policy</h2>
 <p>This policy may be updated at any time. The updated policy becomes active 
     seven days after notice is transmitted to the registered visitors and takes 
