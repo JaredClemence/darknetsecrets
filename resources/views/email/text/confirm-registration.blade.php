@@ -16,4 +16,4 @@ Kind regards,
 The WebMaster
 DarkNetSecrets.com
 
-@include('email.text.unsubscribe')
+@include('email.text.unsubscribe', compact('referrer'))

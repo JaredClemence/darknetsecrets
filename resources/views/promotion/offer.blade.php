@@ -54,7 +54,8 @@
             <section  style="border:black solid 1px; border-radius:15px; padding: 1rem; background-color: #aae0f1;">
                 <h2>Register Now</h2>
                 <p>Be the first to know when the free workshop is ready and learn hide your Internet activity like a professional.</p>
-                <form method="post">
+                <form method="post" action="{{$createUrl}}">
+                    @csrf
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input id="email" name="email" type="email" class="form-control" />

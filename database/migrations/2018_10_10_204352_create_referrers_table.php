@@ -19,6 +19,7 @@ class CreateReferrersTable extends Migration
             $table->string('email');
             $table->boolean('verified')->default(0);
             $table->boolean('unsubscribed')->default(0);
+            $table->integer('referred_by')->nullable(true);
             $table->string('secure_token');
             $table->timestamps();
         });

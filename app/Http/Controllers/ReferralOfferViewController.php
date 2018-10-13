@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Campaign\Referrer;
 use App\Campaign\Promotion;
 use App\Events\NewPromotionRegistration;
+use Illuminate\Support\Facades\Session;
 
 class ReferralOfferViewController extends Controller {
 
@@ -16,11 +17,15 @@ class ReferralOfferViewController extends Controller {
         //    trigger offer view event for referrer
         //load promotion page
         //display promotion page.
-        return view('promotion.offer');
+        $promotion = Promotion::firstOrCreate(['code'=>'free_training','name'=>'Free Training']);
+        $createUrl = route('registration.create', ['code'=>$promotion]);
+        return view('promotion.offer', compact('createUrl'));
     }
 
-    public function registerVisitor(Request $request, Promotion $promotion, Referrer $referrer) {
+    public function registerVisitor(Request $request, Promotion $code, Referrer $ref_id) {
         //validate email format
+        $promotion = $code;
+        $referrer = $ref_id;
         $request->validate(
                 [
                     'email' => 'required'
@@ -30,29 +35,26 @@ class ReferralOfferViewController extends Controller {
         $email = $request->input('email');
         $errorMsg = $this->prepareErrorMessage($promotion, $email);
         try {
-            if ($errorMsg) {
+            if ( strlen($errorMsg) > 0 ) {
                 //    flash an error message
-                flash('errorMsg', $errorMsg);
+                Session::flash('errorMsg', $errorMsg);
                 //    redirect to rejection page
                 $nextPage = route('registration.error', compact('promotion'));
                 throw new \Exception();
             }
-            $newRegistration = $this->createNewRegistration( $promotion, $email );
             
-            if( $referrer ){
-            //    link newRegistration to referrer
-                $newRegistration->referrer_id = $referrer->id;
-            }
+            $newRegistration = $this->createNewRegistration( $promotion, $email );
+            $newRegistration->referred_by = $referrer->id;
             $newRegistration->save();
             $event = new NewPromotionRegistration($newRegistration);
             //    trigger registration event for referrer and promotion
-            $event->dispatch();
+            event( $event );
             //load promotion page
             //redirect to thank you page.
-            $nextPage = (route('registration.success', compact('promotion', 'referrer')));
-        
-        } catch (\Exception $e) {
+            $nextPage = (route('registration.success', ['code'=>$promotion,'new_ref_id'=>$newRegistration]));
             
+        } catch (\Exception $e) {
+            dd( $e );
         }
         return redirect($nextPage);
     }
@@ -88,7 +90,7 @@ class ReferralOfferViewController extends Controller {
         $errorMsg = "";
         //isRegistered = verify that email is not registered
         $isRegistered = $this->isEmailRegisteredForPromotion($promotion, $email);
-        if ($isRegistered == false) {
+        if ($isRegistered == true) {
             $errorMsg = "The email address '$email', is already registered for the current promotion.";
         }
         $isActive = $promotion->active;
@@ -99,15 +101,29 @@ class ReferralOfferViewController extends Controller {
     }
 
     private function createNewRegistration(Promotion $promotion, $email) {
-        $referrer = Referrer::firstOrCreate( [
+        $referrer = Referrer::where( [
             'promotion_id'=>$promotion->id,
             'email'=>$email
-        ] );
+        ] )->first();
+        if( $referrer == null ){
+            $referrer = new Referrer();
+            $referrer->email = $email;
+            $referrer->promotion_id = $promotion->id;
+        }
         if( $referrer->secure_token == null ){
             $timestamp = time();
             $referrer->secure_token = substr( md5( $timestamp ), 10, 5 );
         }
         return $referrer;
+    }
+
+    private function isEmailRegisteredForPromotion(Promotion $promotion, $email) {
+        $id = $promotion->id;
+        $referrer = Referrer::where([
+            'promotion_id'=>$id,
+            'email'=>$email
+        ])->first();
+        return $referrer != null;
     }
 
 }

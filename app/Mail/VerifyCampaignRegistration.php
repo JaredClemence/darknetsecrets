@@ -39,7 +39,7 @@ class VerifyCampaignRegistration extends Mailable
         ]);
         
         return $this->from('webmaster@darknetsecrets.com')
-                ->subject("Confirm Registration")
+                ->subject("Confirm DarkNetSecrets Registration")
                 ->text('email.text.confirm-registration')->with( compact('referrer','event','confirmationLink'));
     }
 }

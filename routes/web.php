@@ -31,7 +31,7 @@ Route::prefix('campaign')->group(function() {
         return 'edit';
     });
     Route::get('/contest/{ref_id?}', 'ReferralOfferViewController@displayOffer')->name('registration.new');
-    Route::post('/{code}/{ref_id?}/register', 'ReferralOfferViewController@registerVisitor');
+    Route::post('/{code}/register', 'ReferralOfferViewController@registerVisitor')->name('registration.create');
     Route::get('/{code}/{new_ref_id}/thank-you', 'ReferralOfferViewController@successfulRegistration')->name('registration.success');
     Route::get('/{code}/error', 'ReferralOfferViewController@rejectedRegistration')->name('registration.error');
     Route::get('/{code}/contest', 'ReferralOfferViewController@rejectedRegistration')->name('contest.offer');

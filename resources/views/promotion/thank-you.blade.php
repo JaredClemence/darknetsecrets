@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col text-center">
-            <h1>Learn to surf the Internet without being traced.</h1>
+            <h1>Registration Complete</h1>
+            <p>You are registered for updates on the class "Learn to surf the Internet without being traced".</p>
         </div>
     </div>
     <div class="row">
@@ -13,8 +14,11 @@
         </div>
     </div>
     <div class="jumbotron">
-        <h1 class="display-4">Surf the Internet without being traced</h1>
-        <p class="lead">You are registered. Next, verify your email address and see how to get a free laptop below.</p>
+        <h1>You may qualify for a free laptop. See information below.</h1>
+        <p class="lead">Registration complete! You are registered for updates on the class "Learn to surf the Internet without being traced".</p>
+        <h1>What's next</h1>
+        <p class="lead">Next, verify your email address and see how to get a free laptop below.</p>
+        
     </div>
     <div class="row">
         <div class="col-10 offset-xs-1 col-md-8">

@@ -26,7 +26,7 @@ class RegisteredUserEvent
         $this->referrer = $referrer;
     }
     
-    protected function getReferrer() :Referrer {
+    public function getReferrer() :Referrer {
         return $this->referrer;
     }
 
