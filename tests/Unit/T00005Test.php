@@ -39,5 +39,6 @@ class T00005Test extends TestCase
         $response->assertSeeText("Windows 10");
         $response->assertSeeText("32 GB Ram!");
         $response->assertSeeText("Share it with friends");
+        $response->assertSeeText("Your unique referral link:");
     }
 }
