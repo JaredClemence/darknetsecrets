@@ -26,4 +26,8 @@ class Referrer extends Model
     public function promotion(){
         return $this->belongsTo(Promotion::class);
     }
+    
+    public function referredBy(){
+        return $this->belongsTo(Referrer::class,'referred_by');
+    }
 }

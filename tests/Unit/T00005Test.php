@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use Illuminate\Support\Facades\Mail;
 use App\Campaign\Referrer;
 
 /**
@@ -22,8 +22,9 @@ class T00005Test extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testVerifyEmail()
     {
+        Mail::fake();
         $referrer = factory( Referrer::class )->create(['verified'=>false]);
         $verificationUrl = route('verify', [
             'ref_id'=>$referrer,

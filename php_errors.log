@@ -112,3 +112,33 @@ Stack trace:
 [15-Oct-2018 18:44:00 UTC] PHP  50. spl_autoload_call() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/Container.php:779
 [15-Oct-2018 18:44:00 UTC] PHP  51. Composer\Autoload\ClassLoader->loadClass() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/Container.php:779
 [15-Oct-2018 18:44:00 UTC] PHP  52. Composer\Autoload\includeFile() /Users/jaredclemence/darknet/vendor/composer/ClassLoader.php:322
+[15-Oct-2018 22:35:21 UTC] PHP Fatal error:  Cannot declare class CreateJobsTable, because the name is already in use in /Users/jaredclemence/darknet/database/migrations/2018_10_15_223505_create_jobs_table.php on line 36
+[15-Oct-2018 22:35:21 UTC] PHP Stack trace:
+[15-Oct-2018 22:35:21 UTC] PHP   1. {main}() /Users/jaredclemence/darknet/artisan:0
+[15-Oct-2018 22:35:21 UTC] PHP   2. App\Console\Kernel->handle() /Users/jaredclemence/darknet/artisan:37
+[15-Oct-2018 22:35:21 UTC] PHP   3. Illuminate\Console\Application->run() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+[15-Oct-2018 22:35:21 UTC] PHP   4. Illuminate\Console\Application->run() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+[15-Oct-2018 22:35:21 UTC] PHP   5. Illuminate\Console\Application->doRun() /Users/jaredclemence/darknet/vendor/symfony/console/Application.php:145
+[15-Oct-2018 22:35:21 UTC] PHP   6. Illuminate\Console\Application->doRunCommand() /Users/jaredclemence/darknet/vendor/symfony/console/Application.php:262
+[15-Oct-2018 22:35:21 UTC] PHP   7. Illuminate\Database\Console\Migrations\FreshCommand->run() /Users/jaredclemence/darknet/vendor/symfony/console/Application.php:886
+[15-Oct-2018 22:35:21 UTC] PHP   8. Illuminate\Database\Console\Migrations\FreshCommand->run() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Console/Command.php:170
+[15-Oct-2018 22:35:21 UTC] PHP   9. Illuminate\Database\Console\Migrations\FreshCommand->execute() /Users/jaredclemence/darknet/vendor/symfony/console/Command/Command.php:255
+[15-Oct-2018 22:35:21 UTC] PHP  10. Illuminate\Foundation\Application->call() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Console/Command.php:183
+[15-Oct-2018 22:35:21 UTC] PHP  11. Illuminate\Container\BoundMethod::call() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/Container.php:572
+[15-Oct-2018 22:35:21 UTC] PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+[15-Oct-2018 22:35:21 UTC] PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+[15-Oct-2018 22:35:21 UTC] PHP  14. call_user_func_array:{/Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+[15-Oct-2018 22:35:21 UTC] PHP  15. Illuminate\Database\Console\Migrations\FreshCommand->handle() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+[15-Oct-2018 22:35:21 UTC] PHP  16. Illuminate\Database\Console\Migrations\FreshCommand->call() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/FreshCommand.php:55
+[15-Oct-2018 22:35:21 UTC] PHP  17. Illuminate\Database\Console\Migrations\MigrateCommand->run() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Console/Command.php:198
+[15-Oct-2018 22:35:21 UTC] PHP  18. Illuminate\Database\Console\Migrations\MigrateCommand->run() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Console/Command.php:170
+[15-Oct-2018 22:35:21 UTC] PHP  19. Illuminate\Database\Console\Migrations\MigrateCommand->execute() /Users/jaredclemence/darknet/vendor/symfony/console/Command/Command.php:255
+[15-Oct-2018 22:35:21 UTC] PHP  20. Illuminate\Foundation\Application->call() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Console/Command.php:183
+[15-Oct-2018 22:35:21 UTC] PHP  21. Illuminate\Container\BoundMethod::call() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/Container.php:572
+[15-Oct-2018 22:35:21 UTC] PHP  22. Illuminate\Container\BoundMethod::callBoundMethod() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+[15-Oct-2018 22:35:21 UTC] PHP  23. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+[15-Oct-2018 22:35:21 UTC] PHP  24. call_user_func_array:{/Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+[15-Oct-2018 22:35:21 UTC] PHP  25. Illuminate\Database\Console\Migrations\MigrateCommand->handle() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+[15-Oct-2018 22:35:21 UTC] PHP  26. Illuminate\Database\Migrations\Migrator->run() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php:71
+[15-Oct-2018 22:35:21 UTC] PHP  27. Illuminate\Database\Migrations\Migrator->requireFiles() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php:90
+[15-Oct-2018 22:35:21 UTC] PHP  28. Illuminate\Filesystem\Filesystem->requireOnce() /Users/jaredclemence/darknet/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php:448

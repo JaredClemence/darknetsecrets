@@ -8,13 +8,8 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use App\Events\NewPromotionRegistration;
 use App\Events\EmailAddressVerified;
-use App\Events\Unsubscribed;
-use App\Events\QualifiedPrizeEntry;
-use App\Listeners\SendContestUpdateNotification;
-use App\Listeners\SendUnsubscribeConfirmation;
 use App\Listeners\SendVerifyRegisteredEmailNotification;
-use App\Listeners\AddPrizeEntry;
-use App\Listeners\SendPrizeEntryNotification;
+use App\Listeners\SendNewReferralNotice;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -31,14 +26,7 @@ class EventServiceProvider extends ServiceProvider {
             SendVerifyRegisteredEmailNotification::class
         ],
         EmailAddressVerified::class => [
-            SendContestUpdateNotification::class
-        ],
-        Unsubscribed::class => [
-            SendUnsubscribeConfirmation::class
-        ],
-        QualifiedPrizeEntry::class=>[
-            AddPrizeEntry::class,
-            SendPrizeEntryNotification::class
+            SendNewReferralNotice::class
         ],
     ];
 

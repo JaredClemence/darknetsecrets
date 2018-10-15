@@ -7,6 +7,7 @@ use App\Campaign\Referrer;
 use App\Campaign\Promotion;
 use App\Events\NewPromotionRegistration;
 use Illuminate\Support\Facades\Session;
+use App\Events\EmailAddressVerified;
 
 class ReferralOfferViewController extends Controller {
 
@@ -83,6 +84,8 @@ class ReferralOfferViewController extends Controller {
             $ref_id->save();
             $email = $ref_id->email;
             $successMessage = "Verified '$email'. You are now eligible to receive bonuses when you provide referrals.";
+            $event = new EmailAddressVerified($ref_id);
+            event( $event );
             return view('promotion.thank-you', compact('referralUrl', 'successMessage'));
         } else {
             return "Bad link";
