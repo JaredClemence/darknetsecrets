@@ -42,7 +42,7 @@
                         <strong>Your unique referral link:</strong> <small>(Share with friends)</small><br/><br/>
                         <span id="referralUrl">{{ route('registration.new', [
                             'ref_id'=>$referrer
-                        ] }}</span><br/>
+                        ]) }}</span><br/>
                         <span id="btn_drop">&nbsp;</span>
                     </div>
             <p>
