@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Session;
 
 class ReferralOfferViewController extends Controller {
 
-    public function displayOffer(\App\Campaign\Referrer $referrer) {
-        //if referrer = null, select random, active, promotion
-        //else 
-        //    select promotion by referrer.
-        //    trigger offer view event for referrer
-        //load promotion page
-        //display promotion page.
-        $promotion = Promotion::firstOrCreate(['code'=>'free_training','name'=>'Free Training']);
+    public function displayOffer(Referrer $ref_id) {
+        $referrer = $ref_id;
+        $promotion = null;
+        if( $referrer->exists ){
+            $promotion = $referrer->promotion;
+        }else{
+            $promotion = Promotion::firstOrCreate(['code'=>'free_training','name'=>'Free Training']);
+        }
         $createUrl = route('registration.create', ['code'=>$promotion]);
         return view('promotion.offer', compact('createUrl'));
     }

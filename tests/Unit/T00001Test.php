@@ -17,8 +17,14 @@ class T00001Test extends TestCase
     /**
      * @dataProvider provider
      */
-    public function testPageLoad( $url )
+    public function testPageLoad( $name, $useReferrer )
     {
+        $ref_id = null;
+        if( $useReferrer ){
+            $ref_id = factory( Referrer::class )->create();
+        }
+        $url = route( $name, compact('ref_id'));
+        
         $offerHeading = "Free training about Internet privacy";
         $registrationButton = "<button type=\"submit\" class=\"btn btn-primary\">Register</button>";
         $termsAndConditions = "Terms & Conditions";
@@ -30,11 +36,9 @@ class T00001Test extends TestCase
         $response->assertSeeText($termsAndConditions);
     }
     public function provider(){
-        parent::setUp();
         $endpoint = 'registration.new';
-        $ref_id = 1; //factory( Referrer::class )->create();
-        $urlNoReferrer = [ route($endpoint) ];
-        $urlWithReferrer = [ route($endpoint, compact('ref_id')) ];
+        $urlNoReferrer = [ $endpoint, false ];
+        $urlWithReferrer = [ $endpoint, true ];
         return compact('urlNoReferrer','urlWithReferrer');
     }
 }
