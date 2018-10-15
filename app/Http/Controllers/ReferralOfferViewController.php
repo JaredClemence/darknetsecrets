@@ -72,7 +72,7 @@ class ReferralOfferViewController extends Controller {
         $email = $referrer->email;
         //return view with contest prize offer and terms.
         $successMessage = "Successfully registered '$email'. We will send an email in five to ten minutes. Please click the link in the email to verify your email address.";
-        return view('promotion.thank-you', compact('referralUrl', 'successMessage'));
+        return view('promotion.thank-you', compact('referrer','referralUrl', 'successMessage'));
     }
 
     public function rejectedRegistration(Promotion $promotion, Referrer $referrer) {
