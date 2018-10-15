@@ -3,7 +3,10 @@ Awesome! You have just registered to receive notifications about {{$event}}.
 Please confirm that we have the right email address by copying the url below into an 
 Internet browser. Any browser will due: Chrome, Firefox, Edge, Safari, or any other browser.
 
-{{$confirmationLink}}
+{{ route('verify', [
+    'ref_id'=>$referrer,
+    'sec_token'=>$referrer->secure_token
+]) }}
 
 Don't forget that you can win an awesome prize if you refer friends using your 
 custom referral link.
