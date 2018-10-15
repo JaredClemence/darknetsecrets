@@ -10,6 +10,7 @@ use App\Events\NewPromotionRegistration;
 use App\Events\EmailAddressVerified;
 use App\Listeners\SendVerifyRegisteredEmailNotification;
 use App\Listeners\SendNewReferralNotice;
+use App\Listeners\SendReferralProgramNotice;
 
 class EventServiceProvider extends ServiceProvider {
 
@@ -26,7 +27,8 @@ class EventServiceProvider extends ServiceProvider {
             SendVerifyRegisteredEmailNotification::class
         ],
         EmailAddressVerified::class => [
-            SendNewReferralNotice::class
+            SendNewReferralNotice::class,
+            SendReferralProgramNotice::class
         ],
     ];
 

@@ -36,3 +36,8 @@ Route::prefix('campaign')->group(function() {
     Route::get('/{code}/error', 'ReferralOfferViewController@rejectedRegistration')->name('registration.error');
     Route::get('/{code}/contest', 'ReferralOfferViewController@rejectedRegistration')->name('contest.offer');
 });
+
+Route::get( '/email', function(){
+    $referrer = factory( App\Campaign\Referrer::class )->create();
+    return view( 'email.text.referral-program-notice', compact('referrer'));
+} );
