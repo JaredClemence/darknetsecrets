@@ -7,6 +7,9 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Campaign\Referrer;
 
+/**
+ * Given a site visitor, the site loads an offer page.
+ */
 class T00001Test extends TestCase
 {
     use RefreshDatabase;

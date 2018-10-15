@@ -4,7 +4,7 @@ namespace App\Listeners;
 
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Mail\VerifyCampaignRegistration;
+use App\Mail\VerifyEmailAddress;
 use App\Events\RegisteredUserEvent;
 use App\Campaign\Referrer;
 use App\Jobs\SendEmail;
@@ -32,7 +32,7 @@ class SendVerifyRegisteredEmailNotification
         $referrer = $event->getReferrer();
         /* @var $referrer Referrer */
         $email = $referrer->email;
-        $mail = new VerifyCampaignRegistration( $referrer );
+        $mail = new VerifyEmailAddress( $referrer );
         $mail->to( $email );
         SendEmail::dispatch( $mail );
     }

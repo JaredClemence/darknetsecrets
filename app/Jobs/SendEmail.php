@@ -25,6 +25,10 @@ class SendEmail implements ShouldQueue
     {
         $this->message = $message;
     }
+    
+    public function getMessage(){
+        return $this->message;
+    }
 
     /**
      * Execute the job.
