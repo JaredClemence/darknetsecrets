@@ -81,12 +81,15 @@ class ReferralOfferViewController extends Controller {
     public function verify(Referrer $ref_id, $sec_token) {
         if ($sec_token == $ref_id->secure_token) {
             $ref_id->verified = true;
-            $ref_id->save();
             $email = $ref_id->email;
             $successMessage = "Verified '$email'. You are now eligible to receive bonuses when you provide referrals.";
-            $event = new EmailAddressVerified($ref_id);
-            event( $event );
-            return view('promotion.thank-you', compact('referralUrl', 'successMessage'));
+            if( $ref_id->isDirty() ){
+                $ref_id->save();
+                $event = new EmailAddressVerified($ref_id);
+                event( $event );
+            }
+            $referrer=$ref_id;
+            return view('promotion.thank-you', compact('referrer', 'successMessage'));
         } else {
             return "Bad link";
         }
