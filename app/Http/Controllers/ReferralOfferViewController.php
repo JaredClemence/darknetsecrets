@@ -55,7 +55,8 @@ class ReferralOfferViewController extends Controller {
             $nextPage = (route('registration.success', ['code' => $promotion, 'new_ref_id' => $newRegistration]));
         } catch (\Exception $e) {
             if( $this->isEmailRegisteredForPromotion($code, $email) ){
-                $nextPage = (route('registration.success', ['code' => $promotion, 'new_ref_id' => $newRegistration]));
+                $referrer = Referrer::where('email',$email)->where('promotion_id',$promotion->id)->first();
+                $nextPage = (route('registration.success', ['code' => $promotion, 'new_ref_id' => $referrer]));
             }else{
                 return "Unknown error.";
             }
