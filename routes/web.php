@@ -12,7 +12,13 @@
  */
 
 Route::get('/', function () {
-    return redirect('/campaign/contest');
+    $utm_source = "direct";
+    $utm_campaign="none";
+    $utm_medium="na";
+    $utm_content="na";
+    extract( $_GET, EXTR_OVERWRITE );
+    $query = http_build_query(compact('utm_source','utm_campaign','utm_medium','utm_content'));
+    return redirect("/campaign/contest?$query");
 });
 
 Auth::routes();
