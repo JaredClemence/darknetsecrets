@@ -11,7 +11,8 @@
   |
  */
 
-Route::get('/', function () {
+Route::get('/', function ( \Illuminate\Http\Request $request ) {
+    \App\Http\Controllers\PageViewController::recordPageView($request);
     $utm_source = "direct";
     $utm_campaign="none";
     $utm_medium="na";
